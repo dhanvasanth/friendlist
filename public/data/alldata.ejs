@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+&lt;  <!-- Less than symbol "<" -->
+&gt;  <!-- Greater than symbol ">" -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,19 +14,19 @@
         <button type="submit"  class="btn1" style="margin-top: 5px;">Home</button>
     </form>
     <div class="all">
-        <% users.forEach(function(user) { %>
+        lt% users.forEach(function(user) { gt%
             <div class="card">
                 <div class="b">
                     <h3 class="a1">Name </h3>
-                    <h3 class="a"><%= user.name %></h3>
+                    <h3 class="a">lt%= user.name gt%</h3>
                 </div>
                 <div class="b">
                     <h3 class="a1">Password  </h3> 
-                    <h3 class="a"><%= user.password %></h3>
+                    <h3 class="a">lt%= user.password gt%</h3>
                 </div>
             </div>
-        <% }); 
-        %>
+        lt% }); 
+        gt%
     </div>
 </body>
 </html>
