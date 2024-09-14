@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    
+    <form action="/home" method="get">
+        <div class="form">
+            <div style="display: flex;
+            align-items: center;height: fit-content;">
+                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin: 0;margin-left: 45px;width: fit-content;">Hello, <%= user %></h1>
+                
+                    <button class="logout" ><a href="/logout" class="ref">logout</a></button>
+                
+            </div>
+            <div class="f1">
+                <form action="/upload" method="post">
+                    <div class="upload">
+                        <h1 class="login"> Login</h1>
+                        <input type="text" name="name" class="ip2" id="i1" placeholder="name"><br>
+                        <input type="text" name="password" class="ip2" id="i2" placeholder="password"><br>
+                        <button type="submit" class="btn1">Upload</button>
+                    </div>
+                </form>
+    
+                <form action="/search" method="post">
+                    <div class="upload">
+                        <h1 class="login"> Find User</h1>
+                        <input type="text" name="name" class="ip2" id="i3" placeholder="name"><br>
+                        <button type="submit" class="btn1">search</button>
+                    </div>
+                </form>
+            </div>
+        <div class="f1">
+            <form action="/delete" method="post">
+                <div class="upload">
+                    <h1 class="login">Delete User</h1>
+                    <input type="text" name="name" class="ip2" id="i4" placeholder="name"><br>
+                    <button type="submit" class="btn1">delete</button>
+                </div>
+            </form>
+    
+            <form action="/update" method="post">
+                <div class="upload">
+                    <h1 class="login">Update </h1>
+                    <button type="submit" class="btn1" name="key" value="name">Name</button>
+                    <button type="submit" class="btn1" name="key" value="password">Password</button>
+                </div>
+            </form>
+            
+        
+        </div>
+        <div class="f1">
+            <form action="/alldata" method="post">
+                <div class="upload1" style="margin-bottom: 0px;">
+                    <button type="submit" class="btn1" id="alldata" style="border-radius: 7px;height: 40px;">Get all data</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div class="banner">
+        
+            <img class="img" src="/image/img2.jpeg" alt="image">
+        
+    </div>
+</form>
+</body>
+</html>

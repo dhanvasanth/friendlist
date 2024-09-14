@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data</title>
+    <link rel="stylesheet" href="/css/alldata.css">
+</head>
+<body>
+    <h1 style="color: aliceblue;margin-left: 20px;">All Users</h1>
+    <form action="/home"  style="margin-left: 20px;">
+        <button type="submit"  class="btn1" style="margin-top: 5px;">Home</button>
+    </form>
+    <div class="all">
+        <% users.forEach(function(user) { %>
+            <div class="card">
+                <div class="b">
+                    <h3 class="a1">Name </h3>
+                    <h3 class="a"><%= user.name %></h3>
+                </div>
+                <div class="b">
+                    <h3 class="a1">Password  </h3> 
+                    <h3 class="a"><%= user.password %></h3>
+                </div>
+            </div>
+        <% }); 
+        %>
+    </div>
+</body>
+</html>

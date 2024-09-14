@@ -1,0 +1,104 @@
+body{
+    background-color: rgb(0, 107, 73);
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ip1{
+    height: 30px;
+    width: 300px;
+    border-radius: 20px;
+    padding-left: 10px;border: none;
+}.ip1:focus{
+    outline: none;
+}
+.upload2{
+    background-color: rgb(93, 207, 152);
+    width: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    
+    box-shadow: 5px 10px 9px #141111;
+}
+.upload{
+    background-color: rgb(177, 255, 217);
+    width: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 15px;
+}.login{
+    color: rgb(12, 50, 25);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}.ip2{
+    color: rgb(0, 47, 35);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 300px;
+    border-radius: 11px;
+    border: none;
+    padding-left: 10px;
+}.ip2:focus{
+    outline: none;
+}.btn1{
+    background-color: rgb(0, 58, 53);
+    border-radius: 17px;
+    color: rgb(170, 225, 212);
+    width: fit-content;
+    height: 35px;
+    border: none;
+    padding-inline: 10px;
+}.btn1:hover{
+    color: rgb(0, 47, 22);
+    background-color: rgb(88, 223, 194);
+}.form{
+    width: fit-content;
+}.upload1{
+    display: flex;
+    background-color: rgb(177, 255, 217);
+    width: fit-content;
+    padding: 9px;
+    border-radius: 7px;
+    margin: 15px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.banner{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    right: 0px;
+    background-color: aliceblue;
+    width: 700px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+.form{
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.f1{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.img{
+    border-radius: 20px;
+    height: 600px;
+    width: 600px;
+    
+}

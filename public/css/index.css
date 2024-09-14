@@ -5,7 +5,23 @@ body{
     flex-direction: row;
     margin: 0;
 }
-
+.ref{
+    text-decoration: none;
+    color: aliceblue;
+}
+.logout{
+    position: relative;
+    left: 39%;
+    top:5px;
+    border: none;
+    background-color: #141111;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}.logout:hover{
+    background-color: rgb(74, 74, 74);
+    color: rgb(255, 255, 255);
+}
 .ip1{
     height: 30px;
     width: 300px;
@@ -13,6 +29,16 @@ body{
     padding-left: 10px;border: none;
 }.ip1:focus{
     outline: none;
+}
+.upload2{
+    background-color: rgb(93, 207, 152);
+    width: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 15px;
+    position: absolute;
+    
+    box-shadow: 5px 10px 9px #141111;
 }
 .upload{
     background-color: rgb(177, 255, 217);

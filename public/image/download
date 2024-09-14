@@ -13,7 +13,7 @@
                 <div class="upload">
                     <h1 class="login"> Login</h1>
                     <input type="text" name="name" class="ip2" id="i1" placeholder="name"><br>
-                    <input type="text" name="age" class="ip2" id="i2" placeholder="age"><br>
+                    <input type="text" name="password" class="ip2" id="i2" placeholder="password"><br>
                     <button type="submit" class="btn1">Upload</button>
                 </div>
             </form>
@@ -27,7 +27,6 @@
             </form>
         </div>
         <div class="f1">
-
             <form action="/delete" method="post">
                 <div class="upload">
                     <h1 class="login">Delete User</h1>
@@ -36,15 +35,24 @@
                 </div>
             </form>
     
+            <form action="/update" method="post">
+                <div class="upload">
+                    <h1 class="login">Update </h1>
+                    <button type="submit" class="btn1" name="key" value="name">Name</button>
+                    <button type="submit" class="btn1" name="key" value="password">Password</button>
+                </div>
+            </form>
+            
+        
         </div>
         <div class="f1">
             <form action="/alldata" method="post">
                 <div class="upload1">
                     <button type="submit" class="btn1" id="alldata" style="border-radius: 7px;height: 40px;">Get all data</button>
                 </div>
-                
             </form>
         </div>
+        
     </div>
     <div class="banner">
         

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Sorry user already exist</h1>
+        <div class="datas">
+            <h3 class="data" style="text-align: center;"> <%= error %></h3>
+        </div>
+        <div style="display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;">
+            <form action="/home"  style="position: relative;">
+                <button type="submit"  class="btn1" style="margin-top: 5px;">Home</button>
+            </form>
+         </div>
+    </div>
+</body>
+</html>
