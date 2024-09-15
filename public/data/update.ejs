@@ -12,7 +12,7 @@
     align-items: center;">
         <form action="/updatesucc" method="post">
             
-                <h2 style="color: rgb(0, 62, 26);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Update lt%= upname gt%</h2>
+                <h2 style="color: rgb(0, 62, 26);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Update <%= upname %></h2>
                 <div >
                     <% if (upname === "name") { %>
                         <h3>Name 1</h3>
@@ -21,7 +21,7 @@
                         <input type="text" name="n2" class="ip2" placeholder="name 2" style="margin-top: -2%;"><br>
                         <button type="submit" value="name" name="key" class="btn1">Upload</button>
                         
-                    <% } else if(upname === "password"){ g%>
+                    <% } else if(upname === "password"){ %>
                         <h3>Name </h3>
                         <input type="text" name="n1" class="ip2"  placeholder="name" style="margin-top: -2%;">
                         <h3>Password</h3>
