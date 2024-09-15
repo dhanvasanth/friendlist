@@ -52,7 +52,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: '39478335314-d40ugph8lrn0m3eqnvebhlb2mll9b5q0.apps.googleusercontent.com',  
     clientSecret: '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',  
-    callbackURL: "https://friendlist-4.onrender.com/auth/api/google/callback",
+    callbackURL: "https://friendlist-4.onrender.com/auth/google/callback",
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
