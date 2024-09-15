@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -6,13 +7,24 @@ const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const app = express();
-
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+dns.setServers(['8.8.8.8']); // Google's public DNS server
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+ // Load environment variables
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => console.error('MongoDB connection error:', err));
+
+  
+
 
 const userSchema = new mongoose.Schema({
     name: String,
@@ -21,7 +33,7 @@ const userSchema = new mongoose.Schema({
 const adminSchema = new mongoose.Schema({
     googleId: String,
     name: String,
-    age: Number,
+    email: String,
 });
 
 const userModel = mongoose.model("users", userSchema);
@@ -36,42 +48,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// passport.use(new GoogleStrategy({
-//     clientID: '39478335314-d40ugph8lrn0m3eqnvebhlb2mll9b5q0.apps.googleusercontent.com',   // Replace with your Google client ID
-//     clientSecret: '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',   // Replace with your Google client secret
-//     callbackURL: "http://localhost:3000/auth/google/callback",
-// },
-//     function (accessToken, refreshToken, profile, done) {
-//         adminModel.findOne({ googleId: profile.id }, (err, user) => {
-//             if (err) return done(err);
-//             if (user) {
-//                 return done(null, user);
-//             } else {
-//                 const newUser = new User({ googleId: profile.id, name: profile.displayName });
-//                 newUser.save((err) => {
-//                     if (err) return done(err);
-//                     return done(null, newUser);
-//                 });
-//             }
-//         });
-//     }
-// ));
+
 passport.use(new GoogleStrategy({
-    clientID: '39478335314-d40ugph8lrn0m3eqnvebhlb2mll9b5q0.apps.googleusercontent.com',   // Replace with your Google client ID
-    clientSecret: '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',   // Replace with your Google client secret
-    callbackURL: "http://localhost:3000/auth/google/callback",
+    clientID: '39478335314-d40ugph8lrn0m3eqnvebhlb2mll9b5q0.apps.googleusercontent.com',  
+    clientSecret: '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',  
+    callbackURL: "/auth/google/callback",
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
       let user = await adminModel.findOne({ googleId: profile.id });
 
       if (!user) {
-        const email = profile.emails && profile.emails[0] ? profile.emails[0].value : null;  // Check if emails exist
-
+        const email = profile.emails && profile.emails[0] ? profile.emails[0].value : null;
         user = await new adminModel({
           googleId: profile.id,
           name: profile.displayName,
-          email: email  // Save the email if it exists, otherwise null
+          email: email  
         }).save();
       }
 
@@ -101,7 +93,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile'] })
+    passport.authenticate('google', { scope: ['profile','email'] })
 );
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
@@ -164,7 +156,7 @@ app.post("/updatesucc",(req,res)=>{
             userModel.findOneAndUpdate({ name: n1 }, { name: n2 })
             .then((updatedUser) => {
                 if(updatedUser){
-                    res.send(`Name updated successfully to: ${updatedUser.name}`);
+                    res.render(path.join(__dirname, "./public/data/updsucc.ejs") ,{name:n2,password:updatedUser.password});
                 }
                 else {
                     res.render(path.join(__dirname, "./public/error/errfetch.ejs"), { error: error1});
@@ -181,7 +173,7 @@ app.post("/updatesucc",(req,res)=>{
             userModel.findOneAndUpdate({ name: n1 }, { password: p1 })
             .then((updatedUser) => {
                 if(updatedUser){
-                    res.send(`Password updated successfully.`);
+                    res.render(path.join(__dirname, "./public/data/updsucc.ejs") ,{name:updatedUser.name,password:p1});
                 }
                 else {
                     res.render(path.join(__dirname, "./public/error/errfetch.ejs"), { error: error1});

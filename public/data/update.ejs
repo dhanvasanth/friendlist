@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-&lt;  <!-- Less than symbol "<" -->
-&gt;  <!-- Greater than symbol ">" -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,19 +14,22 @@
             
                 <h2 style="color: rgb(0, 62, 26);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Update lt%= upname gt%</h2>
                 <div >
-                    lt% if (upname === "name") { gt%
+                    <% if (upname === "name") { %>
                         <h3>Name 1</h3>
                         <input type="text" name="n1" class="ip2" placeholder="name 1" style="margin-top: -2%;">
                         <h3>Name 2</h3>
                         <input type="text" name="n2" class="ip2" placeholder="name 2" style="margin-top: -2%;"><br>
                         <button type="submit" value="name" name="key" class="btn1">Upload</button>
-                    lt% } else if(upname === "password"){ gt%
+                        
+                    <% } else if(upname === "password"){ g%>
                         <h3>Name </h3>
                         <input type="text" name="n1" class="ip2"  placeholder="name" style="margin-top: -2%;">
                         <h3>Password</h3>
                         <input type="text" name="p1" class="ip2" placeholder="password" style="margin-top: -2%;"><br>
                         <button type="submit" value="password" name = "key" class="btn1">Upload</button>
-                    lt% } gt%
+                        
+                    <% } %>
+                   
                 </div>
                 
 

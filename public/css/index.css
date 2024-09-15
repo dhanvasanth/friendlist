@@ -73,6 +73,9 @@ body{
     background-color: rgb(88, 223, 194);
 }.form{
     width: fit-content;
+    position: absolute;
+    right: 48%;
+    top: 5%;
 }.upload1{
     display: flex;
     background-color: rgb(177, 255, 217);
